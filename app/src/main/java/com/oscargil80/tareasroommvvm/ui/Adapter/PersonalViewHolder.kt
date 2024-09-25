@@ -22,12 +22,14 @@ class PersonalViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
 
         binding.delPersonal.setOnClickListener {
-            onClickListener.onImageClick(adapterPosition)
+            personal.id?.let {
+                    id -> onClickListener.onImageClick(id)
+            }
         }
     }
 }
 
 interface OnPersonalClickListener {
-    fun onImageClick(adapterPosition: Int)
+    fun onImageClick(id: Int)
     fun onItemClick(personal: Personal)
 }

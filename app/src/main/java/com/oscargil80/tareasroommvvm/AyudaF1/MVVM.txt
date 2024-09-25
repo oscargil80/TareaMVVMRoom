@@ -1,0 +1,6 @@
+UI   -------------> Fragments y Adapter
+Dao ------------->Dao                             //NoteDao
+Database ------>Database                    //NoteDataBase
+Model----------> Model                       //Notes
+Repsotitory---> Repository                //NoteRepository
+ViewModel--->ViewModel                //NoteViewModel

@@ -1,4 +1,5 @@
 package com.oscargil80.tareasroommvvm.Database
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -9,7 +10,6 @@ import com.oscargil80.tareasroommvvm.Model.Personal
 
 @Database(entities = [Personal::class], version = 1, exportSchema = false)
 abstract class PersonalDatabase : RoomDatabase() {
-
     abstract fun myPersonalDao(): PersonalDao
 
     companion object {
@@ -31,3 +31,5 @@ abstract class PersonalDatabase : RoomDatabase() {
         }
     }
 }
+
+

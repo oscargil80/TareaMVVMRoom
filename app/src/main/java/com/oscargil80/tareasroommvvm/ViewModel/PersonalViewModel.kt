@@ -38,6 +38,4 @@ class PersonalViewModel(application: Application): AndroidViewModel(application)
 
 
 
-
-
 }

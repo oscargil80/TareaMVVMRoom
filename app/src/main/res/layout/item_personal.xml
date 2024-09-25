@@ -14,11 +14,12 @@
 
         <View
             android:id="@+id/delPersonal"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_margin="10dp"
-            android:background="@drawable/delete_dot" />
+            android:background="@drawable/ic_delete"
+             />
 
         <LinearLayout
             android:layout_width="match_parent"

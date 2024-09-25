@@ -24,6 +24,7 @@ class HomeFragment : Fragment(), OnPersonalClickListener {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     val viewModel: PersonalViewModel by viewModels()
+    lateinit var adapter: PersonalAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,7 +39,8 @@ class HomeFragment : Fragment(), OnPersonalClickListener {
 
         viewModel.getAllPersonal().observe(viewLifecycleOwner) { personalList ->
            binding.rvPersonal.layoutManager = LinearLayoutManager(requireContext())
-            binding.rvPersonal.adapter = PersonalAdapter(personalList, this)
+            adapter = PersonalAdapter(personalList, this)
+            binding.rvPersonal.adapter = adapter
         }
 
         binding.btnAddPersonal.setOnClickListener {
@@ -52,9 +54,10 @@ class HomeFragment : Fragment(), OnPersonalClickListener {
         _binding = null
     }
 
-    override fun onImageClick(position: Int) {
-        viewModel.deletePersonal(position)
+    override fun onImageClick(id: Int) {
+        viewModel.deletePersonal(id)
         Toast.makeText(requireContext(), "Elemento Eliminado con exito", Toast.LENGTH_SHORT).show();
+        adapter.notifyDataSetChanged()
     }
 
     override fun onItemClick(personal: Personal) {
