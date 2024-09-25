@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/cedEditPerson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -26,6 +27,7 @@
             android:background="@drawable/edit_text_shape"    />
 
         <EditText
+            android:id="@+id/nombreEditPerson"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="15dp"
@@ -37,6 +39,7 @@
             android:background="@drawable/edit_text_shape"    />
 
         <EditText
+            android:id="@+id/dirEditPerson"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:padding="15dp"
@@ -50,7 +53,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddPersonal"
+        android:id="@+id/btnSavePersonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"

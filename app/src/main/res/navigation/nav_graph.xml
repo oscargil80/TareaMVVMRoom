@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_editPersonFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="data"
+            app:argType="com.oscargil80.tareasroommvvm.Model.Personal" />
     </fragment>
     <fragment
         android:id="@+id/createPersonFragment"
