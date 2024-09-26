@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#757575"
-    tools:context=".ui.Fragments.CreatePersonFragment">
+    android:background="#D32F2F"
+    tools:context=".ui.Fragments.EditarFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,51 +13,54 @@
         android:paddingStart="10dp"
         android:paddingEnd="10dp">
 
-        <EditText
-            android:id="@+id/cedSavePersonal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/edit_text_shape"
-            android:hint="Cedula"
-            android:maxLines="1"
-            android:padding="15dp"
-            android:textColorHint="@color/black"
-            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/nombreSavePersonal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_shape"
-            android:hint="Nombre"
+            android:hint="Codigo Pais"
             android:maxLines="1"
             android:padding="15dp"
             android:textColorHint="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/direccionSavePersonal"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_shape"
-            android:gravity="start"
-            android:hint="Direccion"
+            android:hint="Continente..."
+            android:maxLines="1"
             android:padding="15dp"
             android:textColorHint="@color/black"
+            android:textSize="18sp"
             android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_text_shape"
+            android:hint="Nombre Pais..."
+            android:maxLines="1"
+            android:padding="15dp"
+            android:textColorHint="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddPersonal"
+        android:id="@+id/btnSaveNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:layout_margin="26dp"
-        android:src="@drawable/ic_done"
-        android:tintMode="@color/black"
-        app:backgroundTint="#E91E63"
-        app:borderWidth="0dp" />
+        android:backgroundTint="#FF9800"
+        app:borderWidth="0dp"
+        android:tintMode="@color/white"
+        android:src="@drawable/ic_done" />
+
 </FrameLayout>

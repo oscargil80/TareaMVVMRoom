@@ -3,39 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/inicioFragent">
 
     <fragment
-        android:id="@+id/homeFragment"
-        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.HomeFragment"
-        android:label="Listado de Personal"
-        tools:layout="@layout/fragment_home" >
+        android:id="@+id/inicioFragent"
+        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.InicioFragent"
+        android:label="Inicio - Paises"
+        tools:layout="@layout/fragment_inicio" >
         <action
-            android:id="@+id/action_homeFragment_to_createPersonFragment"
-            app:destination="@id/createPersonFragment" />
+            android:id="@+id/action_inicioFragent_to_crearFragment"
+            app:destination="@id/crearFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_editPersonFragment"
-            app:destination="@id/editPersonFragment" />
+            android:id="@+id/action_inicioFragent_to_editarFragment"
+            app:destination="@id/editarFragment" />
     </fragment>
     <fragment
-        android:id="@+id/editPersonFragment"
-        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.EditPersonFragment"
-        android:label="Editar Personal"
-        tools:layout="@layout/fragment_edit_person" >
+        android:id="@+id/crearFragment"
+        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.CrearFragment"
+        android:label="Crear Pais"
+        tools:layout="@layout/fragment_crear" >
         <action
-            android:id="@+id/action_editPersonFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-        <argument
-            android:name="data"
-            app:argType="com.oscargil80.tareasroommvvm.Model.Personal" />
+            android:id="@+id/action_crearFragment_to_inicioFragent"
+            app:destination="@id/inicioFragent" />
     </fragment>
     <fragment
-        android:id="@+id/createPersonFragment"
-        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.CreatePersonFragment"
-        android:label="Crear Personal"
-        tools:layout="@layout/fragment_create_person" >
+        android:id="@+id/editarFragment"
+        android:name="com.oscargil80.tareasroommvvm.ui.Fragments.EditarFragment"
+        android:label="Editar Pais"
+        tools:layout="@layout/fragment_editar" >
         <action
-            android:id="@+id/action_createPersonFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_editarFragment_to_inicioFragent"
+            app:destination="@id/inicioFragent" />
     </fragment>
 </navigation>
