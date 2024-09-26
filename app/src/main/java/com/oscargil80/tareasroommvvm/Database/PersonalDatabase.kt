@@ -12,6 +12,7 @@ import com.oscargil80.tareasroommvvm.Model.Personal
 abstract class PersonalDatabase : RoomDatabase() {
     abstract fun myPersonalDao(): PersonalDao
 
+
     companion object {
         @Volatile
         var INSTANCE: PersonalDatabase? = null
