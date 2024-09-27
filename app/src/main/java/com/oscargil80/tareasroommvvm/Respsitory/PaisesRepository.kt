@@ -13,14 +13,14 @@ class PaisesRepository(val dao: PaisesDao) {
     fun getAllPaises(): LiveData<List<Paises>> = dao.getPaises()
 
 
-    fun insertPaises(pais: Paises) = dao.insertPaises(pais)
+    suspend fun insertPaises(pais: Paises) = dao.insertPaises(pais)
 
 
-    fun deletePaises(id: Int) {
+    suspend fun deletePaises(id: Int) {
         dao.deletePaises(id)
     }
 
-    fun updatePaises(pais: Paises) {
+    suspend fun updatePaises(pais: Paises) {
         dao.updatePaises(pais)
     }
 }

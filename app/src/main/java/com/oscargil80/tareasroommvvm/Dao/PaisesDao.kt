@@ -12,12 +12,12 @@ interface PaisesDao {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertPaises(pais:Paises)
+    suspend fun insertPaises(pais:Paises)
 
     @Query("DELETE FROM Paises WHERE id=:id ")
-    fun deletePaises(id: Int)
+    suspend fun deletePaises(id: Int)
 
     @Update
-    fun updatePaises(pais: Paises)
+    suspend fun updatePaises(pais: Paises)
 
 }

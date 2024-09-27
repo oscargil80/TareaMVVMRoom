@@ -23,7 +23,7 @@ class InicioFragent : Fragment(), onPersonalClickListener {
     private var _binding : FragmentInicioBinding? = null
     private val binding get() = _binding!!
      val viewModel:PaisesViewModel by viewModels()
-
+    lateinit  var adapter: PaisesAdapter
 
 
     override fun onCreateView(
@@ -39,9 +39,7 @@ class InicioFragent : Fragment(), onPersonalClickListener {
 
 
         viewModel.getPaises().observe(viewLifecycleOwner){   paisesList->
-            binding.rvPaises.layoutManager = LinearLayoutManager(requireContext())
-            val adapter = PaisesAdapter(paisesList, this)
-            binding.rvPaises.adapter = adapter
+            setRecyclerView(paisesList)
         }
 
         binding.addPaises.setOnClickListener {
@@ -50,9 +48,11 @@ class InicioFragent : Fragment(), onPersonalClickListener {
         }
     }
 
-   /* private fun setRecyclerView(paisesList: List<Paises>) {
-
-    }*/
+    private fun setRecyclerView(paisesList: List<Paises>) {
+        binding.rvPaises.layoutManager = LinearLayoutManager(requireContext())
+        adapter = PaisesAdapter(paisesList, this)
+        binding.rvPaises.adapter = adapter
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
