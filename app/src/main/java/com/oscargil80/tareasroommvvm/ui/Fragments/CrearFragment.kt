@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import com.oscargil80.tareasroommvvm.Model.Paises
 import com.oscargil80.tareasroommvvm.R
 import com.oscargil80.tareasroommvvm.ViewModel.PaisesViewModel
@@ -50,6 +51,7 @@ class CrearFragment : Fragment() {
         )
         viewModel.addPaises(data)
         Toast.makeText(requireContext(), "Pais Creado con exito", Toast.LENGTH_SHORT).show();
+        Navigation.findNavController(requireView()).navigate(R.id.action_crearFragment_to_inicioFragent)
     }
 
     override fun onDestroyView() {

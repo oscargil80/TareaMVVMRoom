@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,9 +15,10 @@ import com.oscargil80.tareasroommvvm.R
 import com.oscargil80.tareasroommvvm.ViewModel.PaisesViewModel
 import com.oscargil80.tareasroommvvm.databinding.FragmentInicioBinding
 import com.oscargil80.tareasroommvvm.ui.Adapter.PaisesAdapter
+import com.oscargil80.tareasroommvvm.ui.Adapter.onPersonalClickListener
 
 
-class InicioFragent : Fragment() {
+class InicioFragent : Fragment(), onPersonalClickListener {
 
     private var _binding : FragmentInicioBinding? = null
     private val binding get() = _binding!!
@@ -35,22 +37,12 @@ class InicioFragent : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-/*        viewModel.getAllPersonal().observe(viewLifecycleOwner) { personalList ->
-            binding.rvPersonal.layoutManager = LinearLayoutManager(requireContext())
-            adapter = PersonalAdapter(personalList, this)
-            binding.rvPersonal.adapter = adapter
-        }*/
-
-
-
 
         viewModel.getPaises().observe(viewLifecycleOwner){   paisesList->
             binding.rvPaises.layoutManager = LinearLayoutManager(requireContext())
-            val adapter = PaisesAdapter(paisesList)
+            val adapter = PaisesAdapter(paisesList, this)
             binding.rvPaises.adapter = adapter
         }
-
-
 
         binding.addPaises.setOnClickListener {
             Navigation.findNavController(it)
@@ -65,5 +57,15 @@ class InicioFragent : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDeleteListener(id: Int) {
+        viewModel.deletePaises(id)
+        Toast.makeText(requireContext(), "Elemento Borrado ", Toast.LENGTH_SHORT).show();
+    }
+
+    override fun onClickItem(pais: Paises) {
+        val action = InicioFragentDirections.actionInicioFragentToEditarFragment(pais)
+        Navigation.findNavController(requireView()).navigate(action)
     }
 }
