@@ -16,6 +16,7 @@
 
 
         <EditText
+            android:id="@+id/codigoPaisAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -28,11 +29,12 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/nombrePaisAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_shape"
-            android:hint="Continente..."
+            android:hint="Nombre de Pais"
             android:maxLines="1"
             android:padding="15dp"
             android:textColorHint="@color/black"
@@ -40,11 +42,12 @@
             android:textStyle="bold" />
 
         <EditText
+            android:id="@+id/continentePaisAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/edit_text_shape"
-            android:hint="Nombre Pais..."
+            android:hint="Continente de  Pais..."
             android:maxLines="1"
             android:padding="15dp"
             android:textColorHint="@color/black"
