@@ -26,6 +26,7 @@ class InicioFragent : Fragment(), onPersonalClickListener {
     lateinit  var adapter: PaisesAdapter
 
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
