@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    android:label="Hola"
+    app:startDestination="@id/homeUsuarioFragment">
+
+    <fragment
+        android:id="@+id/homeUsuarioFragment"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.HomeUsuarioFragment"
+        android:label="Usuarios"
+        tools:layout="@layout/fragment_home_usuario" >
+        <action
+            android:id="@+id/action_homeUsuarioFragment_to_createUsuarioFragment"
+            app:destination="@id/createUsuarioFragment" />
+        <action
+            android:id="@+id/action_homeUsuarioFragment_to_editUsuarioFragment"
+            app:destination="@id/editUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUsuarioFragment"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.CreateUsuarioFragment"
+        android:label="Crear Usuario"
+        tools:layout="@layout/fragment_create_usuario" >
+        <action
+            android:id="@+id/action_createUsuarioFragment_to_homeUsuarioFragment"
+            app:destination="@id/homeUsuarioFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUsuarioFragment"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.EditUsuarioFragment"
+        android:label="Editar Usuario"
+        tools:layout="@layout/fragment_edit_usuario" >
+        <action
+            android:id="@+id/action_editUsuarioFragment_to_homeUsuarioFragment"
+            app:destination="@id/homeUsuarioFragment" />
+    </fragment>
+</navigation>
