@@ -9,19 +9,16 @@ import com.oscargil80.tareasroommvvm.Model.Usuarios
 interface UsuariosDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertUsuario(usuario: Usuarios)
+    suspend fun insertUsuario(usuario: Usuarios)
 
     @Update
-    fun updateUsuario(usuario: Usuarios)
+    suspend fun updateUsuario(usuario: Usuarios)
 
     @Query("DELETE FROM Usuarios WHERE id =:id")
-    fun deleteUsuario(id: Int)
+    suspend fun deleteUsuario(id: Int)
 
     @Query("SELECT * FROM Usuarios")
     fun getAllUS():LiveData<List<Usuarios>>
-
-
-
 
 
 }

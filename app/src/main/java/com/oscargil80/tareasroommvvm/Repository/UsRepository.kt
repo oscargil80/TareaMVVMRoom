@@ -7,13 +7,13 @@ import com.oscargil80.tareasroommvvm.Model.Usuarios
 
 class UsRepository(val dao: UsuariosDao) {
 
-    fun getAllUs(): LiveData<List<Usuarios>> = dao.getAllUS()
+      fun getAllUs(): LiveData<List<Usuarios>> = dao.getAllUS()
 
-    fun insertUs(usuario: Usuarios) = dao.insertUsuario(usuario)
+    suspend fun insertUs(usuario: Usuarios) = dao.insertUsuario(usuario)
 
-    fun updateUs(usuario: Usuarios) = dao.updateUsuario(usuario)
+    suspend fun updateUs(usuario: Usuarios) = dao.updateUsuario(usuario)
 
-    fun deleteUs(id:Int) = dao.deleteUsuario(id)
+    suspend  fun deleteUs(id:Int) = dao.deleteUsuario(id)
 
 
 }
