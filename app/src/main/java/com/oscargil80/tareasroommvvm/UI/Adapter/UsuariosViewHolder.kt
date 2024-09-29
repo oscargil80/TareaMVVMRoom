@@ -17,10 +17,19 @@ class UsuariosViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         binding.claveUs.text = usuario.clave.toString()
         binding.descripcionUs.text = usuario.usuario.toString()
 
+        itemView.setOnClickListener {
+            onClickListener.onClickItem(usuario)
+        }
+
+        binding.delUsuario.setOnClickListener {
+            usuario.id?.let {
+                id -> onClickListener.onClickDelete(id)
+            }
+        }
     }
 }
 
 interface OnClickInterface {
     fun onClickItem(usuario: Usuarios)
-    fun onClickDelete(usuario: Usuarios)
+    fun onClickDelete(id: Int)
 }

@@ -15,7 +15,7 @@
         android:paddingEnd="10dp">
 
         <EditText
-            android:id="@+id/cedSavePersonal"
+            android:id="@+id/usSaveUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -28,7 +28,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/nombreSavePersonal"
+            android:id="@+id/claveSaveUs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -40,7 +40,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/direccionSavePersonal"
+            android:id="@+id/descripcionSaveUs"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"

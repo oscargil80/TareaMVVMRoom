@@ -37,5 +37,8 @@
         <action
             android:id="@+id/action_editUsuarioFragment_to_homeUsuarioFragment"
             app:destination="@id/homeUsuarioFragment" />
+        <argument
+            android:name="data"
+            app:argType="com.oscargil80.tareasroommvvm.Model.Usuarios" />
     </fragment>
 </navigation>

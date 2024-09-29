@@ -15,7 +15,7 @@
         android:paddingEnd="10dp">
 
         <EditText
-            android:id="@+id/cedEditPersonal"
+            android:id="@+id/usEditUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -27,7 +27,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/nombreEditPersonal"
+            android:id="@+id/claveEditUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -39,7 +39,7 @@
             android:textColorHint="#757575" />
 
         <EditText
-            android:id="@+id/direccionEditPersonal"
+            android:id="@+id/descripcionEditUsuario"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:layout_marginTop="20dp"
@@ -52,7 +52,7 @@
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/btnAddPersonal"
+        android:id="@+id/btnEditPersonal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
