@@ -1,6 +1,9 @@
 package com.oscargil80.tareasroommvvm.UI.Fragments
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
+import android.view.ContextThemeWrapper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -45,7 +48,7 @@ class HomeUsuarioFragment : Fragment(), OnClickInterface {
         }
 
         binding.btnAddUsuario.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.action_homeUsuarioFragment_to_createUsuarioFragment)
+           Navigation.findNavController(it).navigate(R.id.action_homeUsuarioFragment_to_createUsuarioFragment)
         }
 
     }
@@ -61,7 +64,17 @@ class HomeUsuarioFragment : Fragment(), OnClickInterface {
     }
 
     override fun onClickDelete(id: Int) {
-        viewModel.deleteUs(id)
-        Toast.makeText(requireContext(), "Usuario Eliminado Con Exito", Toast.LENGTH_SHORT).show();
+        val builder = AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.AlertDialogCustom))
+        builder.setPositiveButton("Si"){_,_->
+           viewModel.deleteUs(id)
+            Toast.makeText(requireContext(), "Usuario Eliminado Con Exito", Toast.LENGTH_SHORT).show();
+        }
+
+        builder.setIcon(resources.getDrawable(R.drawable.ic_delete))
+        builder.setNegativeButton("No"){_, _ ->}
+        builder.setTitle("Borrar Elemento")
+        builder.setMessage("Estas Seguro que deseas borrar  este Elemento?")
+      //  builder.setNeutralButton("Hola"){_, _ ->}
+        builder.create().show()
     }
 }
