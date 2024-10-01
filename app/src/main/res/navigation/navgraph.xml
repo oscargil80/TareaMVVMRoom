@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navgraph"
+    app:startDestination="@id/homeFamilyFragments">
+
+    <fragment
+        android:id="@+id/homeFamilyFragments"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.HomeFamilyFragments"
+        android:label="Grupo Familiar"
+        tools:layout="@layout/fragment_home_family" >
+        <action
+            android:id="@+id/action_homeFamilyFragments_to_createFamilyFragments"
+            app:destination="@id/createFamilyFragments" />
+        <action
+            android:id="@+id/action_homeFamilyFragments_to_editFamilyFragments"
+            app:destination="@id/editFamilyFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/createFamilyFragments"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.CreateFamilyFragments"
+        android:label="Crear Grupo Familiar"
+        tools:layout="@layout/fragment_create_family" >
+        <action
+            android:id="@+id/action_createFamilyFragments_to_homeFamilyFragments"
+            app:destination="@id/homeFamilyFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFamilyFragments"
+        android:name="com.oscargil80.tareasroommvvm.UI.Fragments.EditFamilyFragments"
+        android:label="Editar Grupo Familiar"
+        tools:layout="@layout/fragment_edit_family" >
+        <action
+            android:id="@+id/action_editFamilyFragments_to_homeFamilyFragments"
+            app:destination="@id/homeFamilyFragments" />
+    </fragment>
+</navigation>

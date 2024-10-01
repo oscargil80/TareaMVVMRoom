@@ -16,16 +16,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*navController = findNavController(R.id.fragmentContainerView)
-
-        setupActionBarWithNavController(navController)*/
+        navController = findNavController(R.id.fragmentContainerView)
+        setupActionBarWithNavController(navController)
 
     }
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
-
 
 
     override fun onNavigateUp(): Boolean {
