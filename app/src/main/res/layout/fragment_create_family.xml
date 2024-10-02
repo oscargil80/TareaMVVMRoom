@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,31 +21,22 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="44dp"
-                android:text="Bienvenidos"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Email"
+                android:layout_marginTop="12dp"
+                android:text="Parentesco"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/parenCreate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Enter Your Email"
+                android:hint="Escriba..."
                 android:inputType="text"
                 android:padding="12dp"
                 android:textSize="18sp" />
@@ -52,33 +44,44 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Email"
+                android:layout_marginTop="12dp"
+                android:text="Nombre"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/nombreCreate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
-                android:hint="Enter Your Email"
+                android:hint="escriba aqui..."
                 android:inputType="text"
                 android:padding="12dp"
                 android:textSize="18sp" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                style="@android:style/Widget.Button"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Apellido"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/apellidoCreate"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="32dp"
-                android:background="@drawable/orange_bg"
-                android:text="Hola"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="12dp"
+                android:background="@drawable/edittext_bg"
+                android:ems="10"
+                android:hint="escriba aqui..."
+                android:inputType="text"
+                android:padding="12dp"
+                android:textSize="18sp" />
 
 
         </LinearLayout>
@@ -96,10 +99,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bottom_wave"
+            android:scaleType="centerCrop"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAddFamily"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_done"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="26dp"
+            app:backgroundTint="#00893E"
+            android:tintMode="@color/black"
+            app:borderWidth="0dp"
 
             />
     </androidx.constraintlayout.widget.ConstraintLayout>

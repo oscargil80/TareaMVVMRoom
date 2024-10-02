@@ -19,7 +19,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:listitem="@layout/item_personal"
+            tools:listitem="@layout/item_family"
             />
 
 
@@ -31,7 +31,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="26dp"
-            app:backgroundTint="#E91E63"
+            app:backgroundTint="@color/orange"
             android:tintMode="@color/black"
             app:borderWidth="0dp"
 

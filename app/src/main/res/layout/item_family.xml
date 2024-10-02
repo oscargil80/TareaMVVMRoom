@@ -9,11 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        app:cardBackgroundColor="#4A4444"
+        app:cardBackgroundColor="#fecdc0"
         app:cardCornerRadius="10dp">
 
         <View
-            android:id="@+id/delPersonal"
+            android:id="@+id/delFamily"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_gravity="right"
@@ -28,33 +28,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/cedPersonal"
+                android:id="@+id/parenFamily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="CI: 15.460.951"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/nombrePersonal"
+                android:id="@+id/nombreFamily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:maxLines="1"
                 android:text="Oscar Medina"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/direccionPersonal"
+                android:id="@+id/apellidoFamily"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Calle Nro Prolongacion el Prado Calle Nro Prolongacion el Prado Calle Nro Prolongacion el Prado Calle Nro Prolongacion el Prado "
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
         </LinearLayout>
