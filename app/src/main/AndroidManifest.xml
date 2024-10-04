@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TareasRoomMvvM"
         tools:targetApi="31">
+        <!-- Le pongo el  *android:exported="true" * de  la linea 19  pues el adjustResize  no funciono-->
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

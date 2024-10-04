@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".UI.Fragments.EditFamilyFragments">
 
     <ScrollView
@@ -35,6 +36,8 @@
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
                 android:hint="Escriba..."
+                android:textColor="@color/black"
+                tools:ignore="Hola esta es una prie"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textSize="18sp" />
@@ -56,6 +59,7 @@
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
                 android:hint="escriba aqui..."
+                android:textColor="@color/black"
                 android:inputType="text"
                 android:padding="12dp"
                 android:textSize="18sp" />
@@ -74,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="12dp"
+                android:textColor="@color/black"
                 android:background="@drawable/edittext_bg"
                 android:ems="10"
                 android:hint="escriba aqui..."
