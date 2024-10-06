@@ -1,13 +1,17 @@
 package com.oscargil80.tareasroommvvm.UI.Fragments
 
+
+import android.annotation.SuppressLint
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.oscargil80.tareasroommvvm.Model.Family
 import com.oscargil80.tareasroommvvm.R
@@ -20,8 +24,13 @@ class EditFamilyFragments : Fragment() {
     private var _binding: FragmentEditFamilyBinding? = null
     private val binding get() = _binding!!
 
-    val viewModel : FamilyViewModel by viewModels()
+    val viewModel: FamilyViewModel by viewModels()
     val familyArgs by navArgs<EditFamilyFragmentsArgs>()
+
+    lateinit var paren:String
+    lateinit var nombre:String
+    lateinit var apellido:String
+    lateinit var navController: NavController
 
 
     override fun onCreateView(
@@ -33,32 +42,58 @@ class EditFamilyFragments : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.parenEdit.setText(familyArgs.data.parentesco)
-        binding.nombreEdit.setText(familyArgs.data.nombre)
-        binding.apellidoEdit.setText(familyArgs.data.apellido)
+
+              //Si es para actulizar
+        if (familyArgs.typeActions == 1) cargarDatos(familyArgs.familyId)
 
         binding.btnUpdateFamily.setOnClickListener {
-            updateFamily()
+            if (familyArgs.typeActions == 0) guardarFamily()
+            else if (familyArgs.typeActions == 1) updateFamily()
         }
+    }
+
+    private fun cargarDatos(familyId: Int) {
+        viewModel.getFamById(familyId).observe(viewLifecycleOwner) { family ->
+            binding.parenEdit.setText(family.parentesco)
+            binding.nombreEdit.setText(family.nombre)
+            binding.apellidoEdit.setText(family.apellido)
+        }
+    }
+
+    private fun guardarFamily() {
+         paren = binding.parenEdit.text.toString()
+         nombre = binding.nombreEdit.text.toString()
+         apellido = binding.apellidoEdit.text.toString()
+
+        val data = Family(
+            null, paren, nombre, apellido
+        )
+
+        viewModel.insertFamily(data)
+        Toast.makeText(requireContext(), "Familia Agregada Con Exito", Toast.LENGTH_SHORT).show();
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_editFamilyFragments_to_homeFamilyFragments)
 
     }
 
     private fun updateFamily() {
-        val paren = binding.parenEdit.text.toString()
-        val nombre = binding.nombreEdit.text.toString()
-        val apellido = binding.apellidoEdit.text.toString()
+         paren = binding.parenEdit.text.toString()
+         nombre = binding.nombreEdit.text.toString()
+         apellido = binding.apellidoEdit.text.toString()
 
         val data = Family(
-            familyArgs.data.id, paren,  nombre, apellido,
+            familyArgs.familyId, paren, nombre, apellido
         )
 
         viewModel.updateFamily(data)
-        Navigation.findNavController(requireView()).navigate(R.id.action_editFamilyFragments_to_homeFamilyFragments)
-        Toast.makeText(requireContext(), "Registro Actualizado Con Exito", Toast.LENGTH_SHORT).show();
-
+        Navigation.findNavController(requireView())
+            .navigate(R.id.action_editFamilyFragments_to_homeFamilyFragments)
+        Toast.makeText(requireContext(), "Registro Actualizado Con Exito", Toast.LENGTH_SHORT)
+            .show();
     }
 
     override fun onDestroyView() {

@@ -33,7 +33,6 @@ class CreateFamilyFragments : Fragment() {
         binding.btnAddFamily.setOnClickListener {
             GuardarFamily()
         }
-
     }
 
     private fun GuardarFamily() {
@@ -42,7 +41,7 @@ class CreateFamilyFragments : Fragment() {
         val apellido = binding.apellidoCreate.text.toString()
 
         val data = Family(
-            null, paren,  nombre, apellido,
+            null, paren,  nombre, apellido
         )
 
         viewModel.insertFamily(data)

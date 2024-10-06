@@ -35,7 +35,12 @@
             android:id="@+id/action_editFamilyFragments_to_homeFamilyFragments"
             app:destination="@id/homeFamilyFragments" />
         <argument
-            android:name="data"
-            app:argType="com.oscargil80.tareasroommvvm.Model.Family" />
+            android:name="typeActions"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="familyId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>

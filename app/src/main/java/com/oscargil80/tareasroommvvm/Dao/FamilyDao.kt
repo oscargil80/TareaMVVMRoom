@@ -11,13 +11,14 @@ interface FamilyDao {
     @Query("SELECT * FROM Family")
     fun gatAllFamily(): LiveData<List<Family>>
 
+    @Query("SELECT * FROM Family WHERE id=:id  ")
+     fun gatFamilyById(id:Int ): LiveData<Family>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend  fun insertFamily(family:Family)
 
     @Update
     suspend fun updateFamily(family: Family)
-
-
 
     @Query("DELETE  FROM Family WHERE id=:id ")
     suspend fun deleteFamily(id:Int)

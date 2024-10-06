@@ -1,5 +1,6 @@
 package com.oscargil80.tareasroommvvm.UI.Fragments
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -26,7 +27,6 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
     val viewModel: FamilyViewModel by viewModels()
     lateinit var adapter: adapterFamily
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,6 +35,7 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
         return binding.root
     }
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -42,26 +43,22 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
             setRecyclewView(familyList)
         }
 
-
         binding.btnAddPersonal.setOnClickListener {
-            Navigation.findNavController(requireView())
-                .navigate(R.id.action_homeFamilyFragments_to_createFamilyFragments)
+            val action =    HomeFamilyFragmentsDirections.actionHomeFamilyFragmentsToEditFamilyFragments(  0,  -1  )
+                Navigation.findNavController(requireView()).navigate(action)
         }
     }
 
     private fun setRecyclewView(familyList: List<Family>) {
-          val list = familyList.sortedBy {
-              with(it) {
-                  parentesco
-                  nombre.uppercase()
-              }
-          }
-
-
+        val list = familyList.sortedBy {
+            with(it) {
+                parentesco
+                nombre.uppercase()
+            }
+        }
         binding.rvPersonal.layoutManager = LinearLayoutManager(requireContext())
-        adapter = adapterFamily(list   , this)
+        adapter = adapterFamily(list, this)
         binding.rvPersonal.adapter = adapter
-
     }
 
     override fun onDestroyView() {
@@ -71,10 +68,12 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
 
     override fun onItemView(family: Family) {
         val action =
-            HomeFamilyFragmentsDirections.actionHomeFamilyFragmentsToEditFamilyFragments(family)
-        Navigation.findNavController(requireView()).navigate(action)
-        Toast.makeText(requireContext(), "Esta es la family ${family.nombre}", Toast.LENGTH_SHORT)
-            .show();
+            family.id?.let {id->
+                HomeFamilyFragmentsDirections.actionHomeFamilyFragmentsToEditFamilyFragments(  1,  id  )
+            }
+        if (action != null) {
+            Navigation.findNavController(requireView()).navigate(action)
+        }
     }
 
     override fun onDeleteView(id: Int) {
@@ -91,14 +90,6 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
             setMessage("Estas Seguro que Desea Eliminar Al Familiar")
             create().show()
         }
-        /*builder.setPositiveButton("SI"){_,_->
-           viewModel.deleteFamily(id)
-           Toast.makeText(requireContext(), "Esta es la family ${id}", Toast.LENGTH_SHORT).show();
-       }
-       builder.setNegativeButton("NO"){_,_->}
-       builder.setTitle("Borrar Elemento")
-       builder.setMessage("Estas Seguro que Desea Eliminar Al Familiar")
-       builder.create().show()
-*/
+
     }
 }
