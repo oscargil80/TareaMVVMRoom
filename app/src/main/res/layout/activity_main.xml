@@ -5,8 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbaR"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/orange"
+        android:layout_width="match_parent"
+        android:title="Listado de Familia"
+        android:layout_height="wrap_content">
+    </androidx.appcompat.widget.Toolbar>
 
 
     <fragment
@@ -17,5 +27,9 @@
         android:layout_weight="1"
         app:defaultNavHost="true"
         app:navGraph="@navigation/navgraph" />
+
+
+
+
 
 </LinearLayout>

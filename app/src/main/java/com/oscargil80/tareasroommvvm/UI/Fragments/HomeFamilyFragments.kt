@@ -2,6 +2,7 @@ package com.oscargil80.tareasroommvvm.UI.Fragments
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.icu.text.CaseMap.Title
 import android.os.Bundle
 import android.util.Log
 import android.view.ContextThemeWrapper
@@ -12,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.set
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oscargil80.tareasroommvvm.Model.Family
 import com.oscargil80.tareasroommvvm.R
@@ -34,8 +36,9 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
         _binding = FragmentHomeFamilyBinding.inflate(inflater, container, false)
         return binding.root
     }
+ // it.supportActionBar?.setTitle("Holaaaa")
 
-
+    @SuppressLint("SuspiciousIndentation")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
