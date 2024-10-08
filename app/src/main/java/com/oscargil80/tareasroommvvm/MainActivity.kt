@@ -1,46 +1,44 @@
 package com.oscargil80.tareasroommvvm
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import android.widget.Toolbar
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.oscargil80.tareasroommvvm.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+ //lateinit  var binding: ActivityMainBinding
 
-
-    //lateinit var navController: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        //binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(R.layout.activity_main )
 
-        MyToolbar().show(this, "Actividad 1", false)
+        MyToolbar().show(this, "Listado",  false)
+      /*  binding.toolbaR.setOnClickListener {
+            Toast.makeText(this, "Hola apreaste el toolbar", Toast.LENGTH_SHORT).show();
+        }
 
-
-
-     /*   val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-         navController = navHostFragment.navController
-
-        val appBarConfiguration = AppBarConfiguration(navController.graph)
-        setupActionBarWithNavController(navController, appBarConfiguration)*/
-
-       /* navController = findNavController(R.id.fragmentContainerView)
-
-        setupActionBarWithNavController(navController)
-        this.supportActionBar?.setTitle("Holaaaa")*/
+        binding.boton.setOnClickListener {
+            Toast.makeText(this, "Hola apreaste el Boton toolbar", Toast.LENGTH_SHORT).show();
+        }*/
 
     }
 
+
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return  false
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
     override fun onNavigateUp(): Boolean {
-        return  super.onNavigateUp()
+        return super.onNavigateUp()
     }
 }

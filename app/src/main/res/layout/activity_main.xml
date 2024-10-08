@@ -15,7 +15,18 @@
         android:background="@color/orange"
         android:layout_width="match_parent"
         android:title="Listado de Familia"
-        android:layout_height="wrap_content">
+        android:layout_height="?attr/actionBarSize">
+
+        <View
+            android:id="@+id/boton"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/social"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            />
+
+
     </androidx.appcompat.widget.Toolbar>
 
 

@@ -1,33 +1,36 @@
 package com.oscargil80.tareasroommvvm.UI.Fragments
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.icu.text.CaseMap.Title
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextThemeWrapper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import androidx.navigation.set
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.oscargil80.tareasroommvvm.Model.Family
+import com.oscargil80.tareasroommvvm.MyToolbar
 import com.oscargil80.tareasroommvvm.R
 import com.oscargil80.tareasroommvvm.UI.Adapter.OnItemSelected
 import com.oscargil80.tareasroommvvm.UI.Adapter.adapterFamily
 import com.oscargil80.tareasroommvvm.ViewModel.FamilyViewModel
+import com.oscargil80.tareasroommvvm.databinding.ActivityMainBinding
 import com.oscargil80.tareasroommvvm.databinding.FragmentHomeFamilyBinding
+
 
 class HomeFamilyFragments : Fragment(), OnItemSelected {
 
     private var _binding: FragmentHomeFamilyBinding? = null
+    private lateinit var binding2: ActivityMainBinding
     private val binding get() = _binding!!
     val viewModel: FamilyViewModel by viewModels()
     lateinit var adapter: adapterFamily
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,14 +41,30 @@ class HomeFamilyFragments : Fragment(), OnItemSelected {
     }
  // it.supportActionBar?.setTitle("Holaaaa")
 
-    @SuppressLint("SuspiciousIndentation")
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        var activ:AppCompatActivity = requireActivity() as AppCompatActivity
 
+        MyToolbar().show(activ, "Listado", false)
+
+
+
+
+
+
+      /* var bot = (activity as? MainActivity)?.binding?.hi
+        bot?.text = "Hola"*/
+
+     /*   binding2.boton.setOnClickListener {
+            Toast.makeText(activ, "Hola lo aprestate estando en e, home", Toast.LENGTH_SHORT).show();
+        }*/
         viewModel.getAllFamily().observe(viewLifecycleOwner) { familyList ->
             setRecyclewView(familyList)
         }
 
+       // activ.supportActionB
         binding.btnAddPersonal.setOnClickListener {
             val action =    HomeFamilyFragmentsDirections.actionHomeFamilyFragmentsToEditFamilyFragments(  0,  -1  )
                 Navigation.findNavController(requireView()).navigate(action)

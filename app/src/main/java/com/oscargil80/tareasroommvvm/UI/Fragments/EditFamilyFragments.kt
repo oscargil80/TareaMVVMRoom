@@ -27,49 +27,37 @@ import com.oscargil80.tareasroommvvm.ViewModel.FamilyViewModel
 import com.oscargil80.tareasroommvvm.databinding.ActivityMainBinding
 import com.oscargil80.tareasroommvvm.databinding.FragmentEditFamilyBinding
 
-
 class EditFamilyFragments : Fragment() {
 
     private var _binding: FragmentEditFamilyBinding? = null
     private val binding get() = _binding!!
-    //lateinit var binding2: ActivityMainBinding
-
 
     val viewModel: FamilyViewModel by viewModels()
     val familyArgs by navArgs<EditFamilyFragmentsArgs>()
 
-    lateinit var paren:String
-    lateinit var nombre:String
-    lateinit var apellido:String
-    lateinit var navController: NavController
 
-
+    lateinit var paren: String;  lateinit var nombre:String;  lateinit var apellido:String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEditFamilyBinding.inflate(inflater, container, false)
-
         return binding.root
     }
-  //  supportActionBar?
-   // supportActionBar
 
-    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var activ:AppCompatActivity = requireActivity() as AppCompatActivity
 
-      //  val toolBar = requireActivity().findViewById<Toolbar>(R.id.toolbaR)
               //Si es para actulizar
         if (familyArgs.typeActions == 1) {
             cargarDatos(familyArgs.familyId)
-            MyToolbar().show(requireActivity() as AppCompatActivity, "Actualizar Familia", true)
+            MyToolbar().show(activ, "Actualizar Familia", true)
         }else if (familyArgs.typeActions== 0){
-            MyToolbar().show(requireActivity() as AppCompatActivity, "Guardar Familia", true)
+            MyToolbar().show(activ, "Guardar Familia", true)
         }
-
 
         binding.btnUpdateFamily.setOnClickListener {
             if (familyArgs.typeActions == 0) guardarFamily()
@@ -97,7 +85,6 @@ class EditFamilyFragments : Fragment() {
         viewModel.insertFamily(data)
         Toast.makeText(requireContext(), "Familia Agregada Con Exito", Toast.LENGTH_SHORT).show();
         Navigation.findNavController(requireView()).navigate(R.id.action_editFamilyFragments_to_homeFamilyFragments)
-        MyToolbar().show(requireActivity() as AppCompatActivity, "Listado Familia", false)
     }
 
     private fun updateFamily() {
@@ -112,8 +99,6 @@ class EditFamilyFragments : Fragment() {
         viewModel.updateFamily(data)
         Navigation.findNavController(requireView())
             .navigate(R.id.action_editFamilyFragments_to_homeFamilyFragments)
-
-        MyToolbar().show(requireActivity() as AppCompatActivity, "Listado Familia", false)
         Toast.makeText(requireContext(), "Registro Actualizado Con Exito", Toast.LENGTH_SHORT)
             .show();
     }
