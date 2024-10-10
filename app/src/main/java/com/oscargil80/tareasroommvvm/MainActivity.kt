@@ -9,26 +9,20 @@ import androidx.navigation.ui.setupActionBarWithNavController
 
 class MainActivity : AppCompatActivity() {
 
-
-    lateinit var navController: NavController
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        /*navController = findNavController(R.id.fragmentContainerView)
-
-        setupActionBarWithNavController(navController)*/
-
+        myToolBar().show(this, "Listado de Elementos ", false)
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onSupportNavigateUp()
+        onBackPressedDispatcher.onBackPressed()
+        return true
     }
 
 
-
     override fun onNavigateUp(): Boolean {
-        return navController.navigateUp() || super.onNavigateUp()
+        return super.onNavigateUp()
     }
 }
