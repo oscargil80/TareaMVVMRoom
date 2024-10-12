@@ -26,7 +26,7 @@
         <item name="android:textColor">#FAFAFA</item>
         <item name="android:textColorPrimary">#FAFAFA</item>
         <item name="android:headerDividersEnabled">true</item>
-        <item name="android:background">@color/orange</item>
+        <item name="android:background">@color/teal_700</item>
     </style>
 
 
