@@ -29,15 +29,9 @@ class PaisesViewModel(application: Application) : AndroidViewModel(application) 
         }
     }
 
-    fun updatePais(pais: Paises) {
+    fun deletePais(pais: Paises) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updatePis(pais)
-        }
-    }
-
-    fun deletePais(id: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.deletePais(id)
+            repository.deletePais(pais)
         }
     }
 

@@ -52,7 +52,6 @@ class HomeFragment : Fragment(), OnClickEvent {
         ViewModel.getAllPaises().observe(viewLifecycleOwner){ paises ->
             setRecyclerView(paises)
         }
-
     }
 
     private fun setRecyclerView(paises: List<Paises>) {
@@ -77,12 +76,12 @@ class HomeFragment : Fragment(), OnClickEvent {
         }
     }
 
-    override fun onClickDelete(id: Int) {
+    override fun onClickDelete(pais: Paises) {
         val builder =
             AlertDialog.Builder(ContextThemeWrapper(requireContext(), R.style.AlertDialogCustom))
         with(builder) {
             setPositiveButton("SI") { _, _ ->
-                ViewModel.deletePais(id)
+                ViewModel.deletePais(pais)
                 Toast.makeText(requireContext(), "Pais Borrado Con Exito", Toast.LENGTH_SHORT).show();
             }
             setNegativeButton("NO") { _, _ -> }
@@ -90,6 +89,5 @@ class HomeFragment : Fragment(), OnClickEvent {
             setMessage("Estas Seguro que Desea Eliminar Este Pais")
             create().show()
         }
-
     }
 }

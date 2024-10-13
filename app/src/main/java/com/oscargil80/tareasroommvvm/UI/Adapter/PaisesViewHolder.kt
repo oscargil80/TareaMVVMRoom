@@ -22,9 +22,8 @@ class PaisesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         }
 
         binding.delPais.setOnClickListener {
-//            onClickListener.onClickDelete(paises.id!!)
-            paises.id?.let { it1 ->
-                onClickListener.onClickDelete(it1)
+            paises?.let { pais ->
+                onClickListener.onClickDelete(pais)
             }
         }
     }
@@ -32,5 +31,5 @@ class PaisesViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
 interface OnClickEvent {
     fun onClickItem(pais: Paises)
-    fun onClickDelete(id: Int)
+    fun onClickDelete(pais: Paises)
 }

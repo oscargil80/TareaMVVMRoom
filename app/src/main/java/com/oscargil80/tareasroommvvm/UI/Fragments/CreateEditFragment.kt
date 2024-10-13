@@ -43,14 +43,10 @@ class CreateEditFragment : Fragment() {
             CargarDatos(paisArgs.idPais)
             myToolBar().show(activ, "Editar Pais", true)
         } else if(paisArgs.typeActions== 0)
-        {
             myToolBar().show(activ, "Crear Pais", true)
-        }
 
         binding.btnAddEdit.setOnClickListener {
-            val action = paisArgs.typeActions
-            if(action== 0)  guardarPais()
-            else if (action==1) updatePais(paisArgs.idPais)
+            guardarPais(paisArgs.idPais)
         }
     }
 
@@ -63,17 +59,19 @@ class CreateEditFragment : Fragment() {
         }
     }
 
-    private fun guardarPais() {
+    private fun guardarPais(idPais: Int) {
+        var id : Int? = idPais
+        if(id==-1)  id = null
         nombre = binding.nombrePais.text.toString()
         capital = binding.capitalPais.text.toString()
         continente = binding.contiPais.text.toString()
-        val data = Paises(null, nombre, capital, continente)
+        val data = Paises(id, nombre, capital, continente)
         viewModel.insertPais(data)
         Navigation.findNavController(requireView()).navigate(R.id.action_createEditFragment_to_homeFragment)
-        Toast.makeText(requireContext(), "Pais Agregado Con exito", Toast.LENGTH_SHORT).show();
+        Toast.makeText(requireContext(), "Pais Agregado Con exito", Toast.LENGTH_SHORT).show()
     }
 
-    private fun updatePais(idPais: Int) {
+   /* private fun updatePais(idPais: Int) {
         nombre = binding.nombrePais.text.toString()
         capital = binding.capitalPais.text.toString()
         continente = binding.contiPais.text.toString()
@@ -81,8 +79,7 @@ class CreateEditFragment : Fragment() {
         viewModel.updatePais(data)
         Navigation.findNavController(requireView()).navigate(R.id.action_createEditFragment_to_homeFragment)
         Toast.makeText(requireContext(), "Pais Actualizado Con exito", Toast.LENGTH_SHORT).show();
-    }
-
+    }*/
 
     override fun onDestroyView() {
         super.onDestroyView()

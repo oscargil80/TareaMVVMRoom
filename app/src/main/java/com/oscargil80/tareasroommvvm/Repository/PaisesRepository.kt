@@ -13,10 +13,6 @@ class PaisesRepository(val dao:paisesDao) {
 
     suspend fun insertPais(pais: Paises) = dao.insertPais(pais)
 
-    suspend fun updatePis(pais:Paises) = dao.updatePais(pais)
-
-    suspend fun deletePais(id:Int) = dao.deletePais(id)
-
-
+    suspend fun deletePais(pais: Paises) = dao.deletePais(pais)
 
 }
